@@ -9,6 +9,7 @@ import RentalsPage from './pages/rentals.jsx';
 import LoanLandingPage from './pages/LoanLandingPage'
 import ProducerPage from './pages/ProducerPage';
 import CompanyPage from './pages/CompanyPage';
+import ScientificConsultation from './pages/ScientificConsultation';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
 <Route path='/Rental' element={<RentalsPage/>}></Route>
 <Route path="/loan/producer" element={<ProducerPage />} />
 <Route path="/loan/investor" element={<CompanyPage />} />
+<Route path="/consultation" element={<ScientificConsultation />} />
 </Routes>
 </BrowserRouter>
 </>
