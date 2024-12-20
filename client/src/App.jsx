@@ -5,6 +5,7 @@ import Register from './pages/Register.jsx';
 import Login from './pages/Login.jsx'
 import Home from './pages/Home.jsx';
 import Main from './pages/Main.jsx';
+import LoanInvestmentPage from './pages/LoanInvestmentPage';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
 <Route path='/Register' element={<Register/>}></Route>
 <Route path='/Login' element={<Login/>}></Route>
 <Route path='/Main' element={<Main/>}></Route>
+<Route path='/loan' element={<LoanInvestmentPage/>}></Route>
 </Routes>
 </BrowserRouter>
 </>

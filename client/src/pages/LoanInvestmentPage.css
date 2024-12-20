@@ -1,0 +1,139 @@
+/* LoanInvestmentPage.css */
+
+/* Basic Styling */
+.loan-investment-page {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-bottom: 20px;
+  }
+  
+  /* Message Box */
+  .message {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Form */
+  .investment-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-bottom: 5px;
+  }
+  
+  select, input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  select:focus, input[type="number"]:focus {
+    outline: none;
+    border-color: #3498db;
+  }
+  
+  button {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Producers List */
+  .producers-list {
+    margin-top: 40px;
+  }
+  
+  .producers-list h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  li h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+  }
+  
+  li p {
+    font-size: 1rem;
+    color: #7f8c8d;
+  }
+  
+  li p:first-child {
+    font-weight: bold;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .loan-investment-page {
+      margin: 10px;
+      padding: 15px;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .investment-form, .producers-list {
+      margin-bottom: 20px;
+    }
+  
+    button {
+      font-size: 1rem;
+    }
+  }
+  
