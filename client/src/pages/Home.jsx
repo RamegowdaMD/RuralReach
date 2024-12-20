@@ -1,16 +1,16 @@
 // Import necessary modules
-import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
-import image1 from '../assets/marketplace.jpeg';
-import image2 from '../assets/loan.jpeg';
+import React from 'react';
 import image3 from '../assets/consultation.jpeg';
-import image4 from '../assets/rentals.jpeg';
 import image5 from '../assets/insights.jpeg';
+import image2 from '../assets/loan.jpeg';
 import image6 from '../assets/logistics.jpeg';
+import image1 from '../assets/marketplace.jpeg';
 import image7 from '../assets/policy.jpeg';
+import image4 from '../assets/rentals.jpeg';
 import image8 from '../assets/resources.jpeg';
-import Navbar from './NavHome';
 import Footer from '../components/footer';
+import Navbar from './NavHome';
 // Main HomePage Component
 const HomePage = () => {
     return (
@@ -39,7 +39,7 @@ const HomePage = () => {
                         title="Loan-Based Investment Model"
                         description="Access structured loans to scale operations and acquire resources."
                         image={image2}
-                        link="/loans"
+                        link="/loan"
                     />
                     <FeatureCard
                         title="Scientific Consultation"
@@ -51,7 +51,7 @@ const HomePage = () => {
                         title="Machinery and Vehicle Rentals"
                         description="Rent farming equipment and vehicles to reduce financial burden."
                         image={image4}
-                        link="/rentals"
+                        link="/rental"
                     />
                     <FeatureCard
                         title="Market Insights and Analytics"
