@@ -10,6 +10,7 @@ import LoanLandingPage from './pages/LoanLandingPage'
 import ProducerPage from './pages/ProducerPage';
 import CompanyPage from './pages/CompanyPage';
 import ScientificConsultation from './pages/ScientificConsultation';
+import PolicyAwareness from './pages/PolicyAwareness';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
 <Route path="/loan/producer" element={<ProducerPage />} />
 <Route path="/loan/investor" element={<CompanyPage />} />
 <Route path="/consultation" element={<ScientificConsultation />} />
+<Route path="/policy" element={<PolicyAwareness />} />
 </Routes>
 </BrowserRouter>
 </>
