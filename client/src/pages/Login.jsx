@@ -15,7 +15,7 @@ function Login() {
         axios.post('http://localhost:3000/Login' , {email, password})
         .then(result =>{console.log(result)
             if(result.data === "Success")
-            {   alert("success")
+            {   alert("user registered successfully")
                 const userName = result.data.name; 
                 navigate('/Main', { state: { name: userName } });
             }

@@ -7,9 +7,9 @@ function Home() {
       <div className="row w-100">
         <div className="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center p-4 bg-light rounded shadow">
           <h5 className="mb-3">Hello everyone</h5>
-          <h3 className="mb-4">Welcome to PRODIGY_FS_01 Task</h3>
+          
           <p className="mb-4">
-            About <strong>User_Authentication_Web</strong>
+            This video is about a complete <strong>User_Authentication using MERN</strong>
           </p>
           <h6 className="mb-4">Do you want to see my default page?</h6>
           <Link to="/Register" className="btn btn-primary btn-lg">
