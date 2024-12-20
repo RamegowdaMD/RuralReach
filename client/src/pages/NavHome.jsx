@@ -27,7 +27,7 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
             <li className="nav-item">
-              <Link className="nav-link fw-semibold" to="/seller">
+              <Link className="nav-link fw-semibold" to="/loan/investor">
                 Become a Investor
               </Link>
             </li>
