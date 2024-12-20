@@ -1,0 +1,22 @@
+.footer ul {
+    padding: 0;
+    list-style: none;
+  }
+  
+  .footer a {
+    transition: color 0.3s;
+  }
+  
+  .footer a:hover {
+    color: #007bff; /* Bootstrap primary color */
+  }
+  
+  .footer hr {
+    border-color: #938686;
+  }
+  
+  .footer p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
