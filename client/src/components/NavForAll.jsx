@@ -1,11 +1,12 @@
-
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ProfPic from '../assets/profile.png';
+import { useTheme } from '../pages/ThemeContext'; // Make sure to import useTheme here
 
 const NavForAll = ({ user }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
+  const { isDarkMode, toggleTheme } = useTheme(); // Use the useTheme hook here to access the theme
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -101,6 +102,14 @@ const NavForAll = ({ user }) => {
               Close
             </button>
 
+            {/* Toggle Dark Mode */}
+            <button
+              onClick={toggleTheme}
+              className={`btn ${isDarkMode ? "btn-light" : "btn-dark"} w-100 mb-3`}
+            >
+              {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            </button>
+
             {/* Display User Info */}
             {user ? (
               <div>
@@ -123,3 +132,4 @@ const NavForAll = ({ user }) => {
 };
 
 export default NavForAll;
+

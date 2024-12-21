@@ -1,6 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {ThemeProvider} from './pages/ThemeContext.jsx'
 import React, { useState } from 'react';
 import Register from './pages/Register.jsx';
 import Login from './pages/Login.jsx';
@@ -26,6 +27,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   return (
+    <ThemeProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -50,6 +52,7 @@ function App() {
         <Route path="/profile" element={<UserProfile />} />
       </Routes>
     </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

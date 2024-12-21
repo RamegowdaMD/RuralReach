@@ -1,3 +1,48 @@
-a{
-    text-decoration: none;
-}
+body {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .sidebar {
+    background-color: #f0f0f0;
+  }
+  
+  .dark {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  .dark .sidebar {
+    background-color: #333333;
+  }
+  
+  .dark .card {
+    background-color: #2c2c2c;
+    color: #ffffff;
+  }
+  
+  .dark .btn-secondary {
+    background-color: #555555;
+    color: #ffffff;
+  }
+  
+  /* Light Mode Styles (Optional to be explicit) */
+  .light {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .light .sidebar {
+    background-color: #f0f0f0;
+  }
+  
+  .light .card {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .light .btn-secondary {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+  
