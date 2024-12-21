@@ -1,9 +1,16 @@
 import React from "react";
 import "../css/Footer.css";
+import { useTheme } from "../pages/ThemeContext";
 
 function Footer() {
+  const { isDarkMode } = useTheme(); // Access the theme context
+
   return (
-    <footer className="footer bg-light text-dark py-5">
+    <footer
+      className={`footer py-5 ${
+        isDarkMode ? "bg-dark text-white" : "bg-primary text-dark"
+      }`}
+    >
       <div className="container">
         <div className="row">
           {/* About Section */}
@@ -20,22 +27,42 @@ function Footer() {
             <h5 className="fw-bold">Quick Links</h5>
             <ul className="list-unstyled">
               <li>
-                <a href="/marketplace" className="text-dark text-decoration-none">
+                <a
+                  href="/marketplace"
+                  className={`${
+                    isDarkMode ? "text-white" : "text-dark"
+                  } text-decoration-none`}
+                >
                   Marketplace
                 </a>
               </li>
               <li>
-                <a href="/loans" className="text-dark text-decoration-none">
+                <a
+                  href="/loans"
+                  className={`${
+                    isDarkMode ? "text-white" : "text-dark"
+                  } text-decoration-none`}
+                >
                   Loans
                 </a>
               </li>
               <li>
-                <a href="/consultation" className="text-dark text-decoration-none">
+                <a
+                  href="/consultation"
+                  className={`${
+                    isDarkMode ? "text-white" : "text-dark"
+                  } text-decoration-none`}
+                >
                   Consultation
                 </a>
               </li>
               <li>
-                <a href="/contact" className="text-dark text-decoration-none">
+                <a
+                  href="/contact"
+                  className={`${
+                    isDarkMode ? "text-white" : "text-dark"
+                  } text-decoration-none`}
+                >
                   Contact Us
                 </a>
               </li>
@@ -45,13 +72,13 @@ function Footer() {
           {/* Contact Section */}
           <div className="col-md-4 mb-4">
             <h5 className="fw-bold">Contact Us</h5>
-            <p>Email: support@RuralReach.com</p>
-            <p>Phone: 7483907232</p>
-            <p>Address: MSRIT Post, M S Ramaiah Nagar, MSR Nagar, Bengaluru, Karnataka 560054</p>
+            <p>Email: support@empoweringproducers.com</p>
+            <p>Phone: +1 (555) 123-4567</p>
+            <p>Address: 123 Innovation Street, City, Country</p>
           </div>
         </div>
 
-        <hr />
+        <hr className={isDarkMode ? "bg-white" : "bg-primary"} />
 
         {/* Footer Bottom */}
         <div className="text-center">
@@ -64,7 +91,9 @@ function Footer() {
               href="https://www.instagram.com/ramegowdadayananda?igsh=MWZtcGZheGEyNm1idw=="
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary text-decoration-underline"
+              className={`${
+                isDarkMode ? "text-primary" : "text-primary"
+              } text-decoration-underline`}
             >
               VARA
             </a>

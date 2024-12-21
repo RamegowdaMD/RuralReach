@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ProfPic from '../assets/profile.png';
-import { useTheme } from '../pages/ThemeContext'; // Make sure to import useTheme here
+import { useTheme } from '../pages/ThemeContext'; // Import useTheme hook
 
 const NavForAll = ({ user }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
-  const { isDarkMode, toggleTheme } = useTheme(); // Use the useTheme hook here to access the theme
+  const { isDarkMode, toggleTheme } = useTheme(); // Use the useTheme hook to get dark mode state
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2 fixed-top">
+    <nav className={`navbar navbar-expand-lg ${isDarkMode ? 'navbar-dark bg-dark' : 'navbar-light bg-white'} shadow-sm py-2 fixed-top`}>
       <div className="container-fluid">
         {/* Brand Logo */}
         <Link className="navbar-brand fw-bold text-primary" to="/" style={{ fontSize: '40px' }}>
@@ -37,7 +37,11 @@ const NavForAll = ({ user }) => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link text-dark fw-semibold" to="/loan/investor">
+              {/* Conditional class for text color based on dark mode */}
+              <Link
+                className={`nav-link fw-semibold ${isDarkMode ? 'text-light' : 'text-dark'}`}
+                to="/loan/investor"
+              >
                 Become an Investor
               </Link>
             </li>
@@ -46,7 +50,7 @@ const NavForAll = ({ user }) => {
                 href="https://www.instagram.com/iam_sjeevan?igsh=YmxxODVsMWhuMzEz"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="nav-link text-reset"
+                className={`nav-link text-reset ${isDarkMode ? 'text-light' : 'text-dark'}`}
               >
                 Contact Us
               </a>
@@ -55,7 +59,7 @@ const NavForAll = ({ user }) => {
 
           <div className="d-flex align-items-center">
             <select
-              className="form-select mx-3"
+              className={`form-select mx-3 ${isDarkMode ? 'text-light bg-dark' : ''}`}
               aria-label="Select Language"
               style={{ maxWidth: '180px', margin: '0 auto' }}
             >
@@ -81,7 +85,7 @@ const NavForAll = ({ user }) => {
       {/* Sidebar for User Info */}
       {isSidebarOpen && (
         <div
-          className="position-fixed top-0 end-0 vh-100 bg-white shadow-lg"
+          className={`position-fixed top-0 end-0 vh-100 ${isDarkMode ? 'bg-dark text-light' : 'bg-white text-dark'} shadow-lg`}
           style={{
             width: "300px",
             zIndex: 1050,
@@ -90,13 +94,13 @@ const NavForAll = ({ user }) => {
         >
           <div className="p-3">
             <button
-              className="btn btn-primary mb-3 w-100"
+              className={`btn ${isDarkMode ? 'btn-light' : 'btn-primary'} mb-3 w-100`}
               onClick={() => navigate('/profile')}
             >
               Profile
             </button>
             <button
-              className="btn btn-danger mb-3 w-100"
+              className={`btn ${isDarkMode ? 'btn-light' : 'btn-danger'} mb-3 w-100`}
               onClick={toggleSidebar}
             >
               Close
@@ -132,4 +136,3 @@ const NavForAll = ({ user }) => {
 };
 
 export default NavForAll;
-
