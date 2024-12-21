@@ -2,12 +2,13 @@ const mongoose = require("mongoose");
 
 const AddressSchema = new mongoose.Schema(
   {
-    userId: String,
-    address: String,
-    city: String,
-    pincode: String,
-    phone: String,
-    notes: String,
+   
+    Pincode: String,
+    Phone: String,
+    Notes: String,
+    UserId: String,
+    Address: String,
+    City: String,
   },
   { timestamps: true }
 );
