@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/LoanLandingPage.css';
+import NavForAll from '../components/NavForAll';
 
 const LoanLandingPage = () => {
     const navigate = useNavigate();
@@ -16,6 +17,8 @@ const LoanLandingPage = () => {
     };
 
   return (
+    <>
+    <NavForAll/>
     <div className="landing-page">
       <h1>Welcome to the Loan Investment Platform</h1>
       <p>Choose your role to get started:</p>
@@ -28,6 +31,7 @@ const LoanLandingPage = () => {
         </button>
       </div>
     </div>
+    </>
   );
 };
 

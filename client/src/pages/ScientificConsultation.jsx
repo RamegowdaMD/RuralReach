@@ -5,6 +5,8 @@ import {
 } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import '../css/ScientificConsultation.css';
+import NavForAll from '../components/NavForAll';
+
 
 const consultants = [
   {
@@ -121,6 +123,8 @@ const ScientificConsultation = () => {
     : consultants;
 
   return (
+    <>
+    <NavForAll/>
     <Container maxWidth="lg" style={{ marginTop: '20px', marginBottom: '20px' }}>
       {/* Title */}
       <Typography variant="h4" gutterBottom style={{ textAlign: 'center', fontWeight: 'bold' }}>
@@ -198,6 +202,7 @@ const ScientificConsultation = () => {
         )}
       </Grid>
     </Container>
+    </>
   );
 };
 

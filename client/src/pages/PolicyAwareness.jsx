@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import '../css/PolicyAwareness.css';
+import NavForAll from '../components/NavForAll';
 
 const PolicyAwareness = () => {
   const policies = [
@@ -32,6 +33,8 @@ const PolicyAwareness = () => {
   ];
 
   return (
+    <>
+    <NavForAll/>
     <div className="container my-5">
       {/* Horizontal Scrolling Text */}
       <div className="bg-primary text-white py-2 mb-4">
@@ -76,6 +79,7 @@ const PolicyAwareness = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 
