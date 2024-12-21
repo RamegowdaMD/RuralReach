@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import NavForAll from '../components/NavForAll';
 
 const RentForm = () => {
     const location = useLocation();
@@ -28,6 +29,8 @@ const RentForm = () => {
     };
 
     return (
+        <>
+        <NavForAll/>
         <div className="container my-5">
             <h1 className="text-center mb-4">Rental Request Form</h1>
             <div className="card">
@@ -115,6 +118,7 @@ const RentForm = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

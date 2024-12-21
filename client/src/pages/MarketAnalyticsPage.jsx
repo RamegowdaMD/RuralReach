@@ -8,6 +8,8 @@ import image5 from '../assets/Organic_Tea_Leaves.jpg';
 import image6 from '../assets/Handmade_Jute_Bags.jpg';
 import image7 from '../assets/Alphonso_Mangoes.jpg';
 import image8 from '../assets/Handmade_Pottery.jpg';
+import NavForAll from '../components/NavForAll';
+
 
 const MarketAnalyticsPage = () => {
   // State for the selected region and products
@@ -43,6 +45,8 @@ const MarketAnalyticsPage = () => {
   };
 
   return (
+    <>
+   <NavForAll/>
     <div className="market-analytics-page">
       <h1>Market Analytics</h1>
 
@@ -76,6 +80,7 @@ const MarketAnalyticsPage = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

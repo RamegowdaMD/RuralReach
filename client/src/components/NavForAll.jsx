@@ -11,7 +11,7 @@ const NavForAll = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
+    <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2 fixed-top">
       <div className="container-fluid">
         {/* Brand Logo */}
         <Link className="navbar-brand fw-bold text-primary" to="/">

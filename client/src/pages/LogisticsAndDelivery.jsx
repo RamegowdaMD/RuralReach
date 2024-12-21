@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
+import NavForAll from '../components/NavForAll';
+
 
 const LogisticsAndDelivery = () => {
   const [pickupLocation, setPickupLocation] = useState("");
@@ -24,6 +26,8 @@ const LogisticsAndDelivery = () => {
   };
 
   return (
+    <>
+    <NavForAll/>
     <div className="container mt-5">
       <h1 className="text-center mb-4">Logistics and Delivery Integration</h1>
       <form onSubmit={handleSubmit} className="border p-4 rounded shadow-sm">
@@ -68,6 +72,7 @@ const LogisticsAndDelivery = () => {
         <button type="submit" className="btn btn-primary w-100">Submit</button>
       </form>
     </div>
+    </>
   );
 };
 

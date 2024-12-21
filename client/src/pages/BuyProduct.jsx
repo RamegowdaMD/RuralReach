@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import NavForAll from "../components/NavForAll";
 
 const BuyProduct = ({ products, onBuy }) => {
   const { id } = useParams();
@@ -22,6 +23,8 @@ const BuyProduct = ({ products, onBuy }) => {
   if (!product) return <p>Product not found!</p>;
 
   return (
+    <>
+    <NavForAll/>
     <div className="container mt-4">
       <h2>Buy Product</h2>
       <p><strong>Name:</strong> {product.name}</p>
@@ -48,6 +51,7 @@ const BuyProduct = ({ products, onBuy }) => {
         <button type="submit" className="btn btn-success">Confirm Order</button>
       </form>
     </div>
+    </>
   );
 };
 

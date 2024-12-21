@@ -1,5 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import NavForAll from '../components/NavForAll';
+
 
 const EducationalResources = () => {
   const resources = [
@@ -41,6 +43,8 @@ const EducationalResources = () => {
   ];
 
   return (
+    <>
+    <NavForAll/>
     <div className="container my-5">
       {/* Horizontal Scrolling Text */}
       <div className="bg-info text-white py-2 mb-4">
@@ -86,6 +90,7 @@ const EducationalResources = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../css/ProducerPage.css';
+import NavForAll from '../components/NavForAll';
 
 const ProducerPage = () => {
   const [producerInfo, setProducerInfo] = useState({
@@ -22,6 +23,8 @@ const ProducerPage = () => {
   };
 
   return (
+    <>
+    <NavForAll/>
     <div className="producer-page">
       <h1>Producer Loan Request</h1>
       <form onSubmit={handleSubmit}>
@@ -81,6 +84,7 @@ const ProducerPage = () => {
         <button type="submit">Submit Loan Request</button>
       </form>
     </div>
+    </>
   );
 };
 
