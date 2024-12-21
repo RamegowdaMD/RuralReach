@@ -18,6 +18,7 @@ import ProductList from './pages/ProductList.jsx';
 import TrackSales from './pages/TrackSales.jsx';
 import LogisticsAndDelivery from './pages/LogisticsAndDelivery.jsx';
 import EducationalResources from './pages/EducationalResources.jsx';
+import UserProfile from './pages/UserProfile.jsx';
 function App() {
   return (
     <BrowserRouter>
@@ -39,6 +40,7 @@ function App() {
         <Route path="/marketplace" element={<ProductList />} />
         <Route path="/logistics" element={<LogisticsAndDelivery />} />
         <Route path="/resources" element={<EducationalResources />} />
+        <Route path="/profile" element={<UserProfile />} />
       </Routes>
     </BrowserRouter>
   );
