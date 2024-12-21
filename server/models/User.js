@@ -6,6 +6,8 @@ const UserSchema = new mongoose.Schema(
         email:String,
         password:String,
         image: String,
+        Role: String,
+        Member_Since: String,
     }
 )
 const UserModel = mongoose.model("Users",UserSchema)
