@@ -161,7 +161,7 @@ const HomePage = () => {
               title="Loan-Based Investment Model"
               description="Access structured loans to scale operations and acquire resources."
               image={image2}
-              link="/loans"
+              link="/loan"
             />
             <FeatureCard
               title="Scientific Consultation"
@@ -173,13 +173,13 @@ const HomePage = () => {
               title="Machinery and Vehicle Rentals"
               description="Rent farming equipment and vehicles to reduce financial burden."
               image={image4}
-              link="/rentals"
+              link="/rental"
             />
             <FeatureCard
               title="Market Insights and Analytics"
               description="Stay updated on market trends, demands, and pricing."
               image={image5}
-              link="/insights"
+              link="/analytics"
             />
             <FeatureCard
               title="Logistics and Delivery Integration"
@@ -191,7 +191,7 @@ const HomePage = () => {
               title="Government Policy Awareness"
               description="Get information on schemes, subsidies, and policies."
               image={image7}
-              link="/policy-awareness"
+              link="/policy"
             />
             <FeatureCard
               title="Educational Resources"

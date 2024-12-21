@@ -12,7 +12,10 @@ import CompanyPage from './pages/CompanyPage';
 import MarketAnalyticsPage from './pages/MarketAnalyticsPage'; // Keep this import
 import ScientificConsultation from './pages/ScientificConsultation'; // Keep this import
 import PolicyAwareness from './pages/PolicyAwareness'; // Keep this import
-
+import AddProduct from './pages/AddProduct.jsx';
+import BuyProduct from './pages/BuyProduct.jsx';
+import ProductList from './pages/ProductList.jsx';
+import TrackSales from './pages/TrackSales.jsx';
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +31,10 @@ function App() {
         <Route path="/analytics" element={<MarketAnalyticsPage />} />
         <Route path="/consultation" element={<ScientificConsultation />} />
         <Route path="/policy" element={<PolicyAwareness />} />
+        <Route path="/list-product" element={<AddProduct />} />
+        <Route path="/track-sales" element={<TrackSales />} />
+        <Route path="/buy-product/:id" element={<BuyProduct  />} />
+        <Route path="/marketplace" element={<ProductList />} />
       </Routes>
     </BrowserRouter>
   );
