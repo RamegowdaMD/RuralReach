@@ -7,7 +7,7 @@ const LoanSchema = new mongoose.Schema(
       ref: 'Users', // Link to the loan receiver
       required: true
     },
-    amountRequested: {
+    requestedAmount: {
       type: Number,
       required: true
     },
@@ -16,7 +16,7 @@ const LoanSchema = new mongoose.Schema(
       required: true
     },
     loanTerm: {
-      type: String, // Example: '12 months', '3 years', etc.
+      type: String, 
       required: true
     },
     repaymentPlan: {

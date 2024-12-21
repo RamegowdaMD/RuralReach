@@ -6,14 +6,14 @@ import NavForAll from '../components/NavForAll';
 const LoanLandingPage = () => {
     const navigate = useNavigate();
   
-    // Navigate to the Producer Page when the "For Producers" button is clicked
+   
     const handleProducerClick = () => {
-      navigate('/loan/producer'); // Navigate to ProducerPage under /loan route
+      navigate('/loan/producer'); 
     };
   
-    // Navigate to the Investor Page when the "For Investors" button is clicked
+    
     const handleInvestorClick = () => {
-      navigate('/loan/investor'); // You can replace this with the actual route for the Investor page
+      navigate('/loan/investor');
     };
 
   return (
