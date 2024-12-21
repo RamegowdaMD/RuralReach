@@ -1,74 +1,69 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import NavDTC from '../components/NavDTC';
+// src/pages/ProductList.jsx
+
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import NavDTC from "../components/NavDTC";
 
 const ProductList = () => {
-  // Sample product data
-  const products = [
-    {
-      id: 1,
-      name: 'Product 1',
-      price: 25.99,
-      quantity: 10,
-    },
-    {
-      id: 2,
-      name: 'Product 2',
-      price: 15.49,
-      quantity: 5,
-    },
-    {
-      id: 3,
-      name: 'Product 3',
-      price: 50.00,
-      quantity: 3,
-    },
-    {
-      id: 4,
-      name: 'Product 4',
-      price: 30.75,
-      quantity: 8,
-    },
-    {
-      id: 5,
-      name: 'Product 5',
-      price: 22.99,
-      quantity: 12,
-    },
-    {
-      id: 6,
-      name: 'Product 6',
-      price: 12.49,
-      quantity: 20,
-    },
-  ];
+  // Mock data for featured products and categories
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+  const [productCategories, setProductCategories] = useState([]);
+
+  useEffect(() => {
+    // Mock featured products
+    setFeaturedProducts([
+      { id: 1, name: "Fresh Organic Tomatoes", imageUrl: "/images/tomatoes.jpg" },
+      { id: 2, name: "Green Leafy Spinach", imageUrl: "/images/spinach.jpg" },
+      { id: 3, name: "Crisp Cucumbers", imageUrl: "/images/cucumbers.jpg" },
+    ]);
+
+    // Mock product categories
+    setProductCategories([
+      { id: 1, name: "Vegetables", description: "Fresh and organic vegetables." },
+      { id: 2, name: "Fruits", description: "Seasonal and fresh fruits." },
+      { id: 3, name: "Grains", description: "Whole grains for healthy meals." },
+    ]);
+  }, []);
 
   return (
-    <>
+    <div className="container my-5">
       <NavDTC />
-      <div className="container mt-4">
-        <h2>Available Products</h2>
-        <div className="row">
-          {products.length === 0 ? (
-            <p>No products available. Please list a product.</p>
-          ) : (
-            products.map((product) => (
-              <div className="col-md-4" key={product.id}>
-                <div className="card mb-4">
-                  <div className="card-body">
-                    <h5 className="card-title">{product.name}</h5>
-                    <p className="card-text">Price: ${product.price}</p>
-                    <p className="card-text">Quantity: {product.quantity}</p>
-                    {/* Update the link to use the correct URL format */}
-                    <Link to={`/buy-product/${product.id}`} className="btn btn-primary">Buy</Link>
-                  </div>
+
+      {/* Featured Products Section */}
+      <h1 className="text-center text-success mb-4">Featured Products</h1>
+      <div className="row row-cols-1 row-cols-md-3 g-4">
+        {featuredProducts?.map((product) => (
+          <div key={product.id} className="col">
+            <div className="card shadow-sm">
+              <Link to={`/product/${product.id}`} className="text-decoration-none">
+                <img
+                  src={product.imageUrl}
+                  alt={product.name}
+                  className="card-img-top"
+                  style={{ height: "200px", objectFit: "cover" }}
+                />
+                <div className="card-body">
+                  <h5 className="card-title text-center text-success">{product.name}</h5>
                 </div>
-              </div>
-            ))
-          )}
-        </div>
+              </Link>
+            </div>
+          </div>
+        ))}
       </div>
-    </>
+
+      {/* Product Categories Section */}
+      <h2 className="text-center text-dark my-5">Product Categories</h2>
+      <div className="row">
+        {productCategories?.map((category) => (
+          <div key={category.id} className="col-md-4 mb-4">
+            <div className="card p-4 shadow-sm">
+              <h4 className="text-center text-primary">{category.name}</h4>
+              <p className="text-center text-muted">{category.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
