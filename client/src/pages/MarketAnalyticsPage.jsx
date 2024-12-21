@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './MarketAnalyticsPage.css'; // Corresponding CSS file for styling
+import '../css/MarketAnalyticsPage.css'; // Corresponding CSS file for styling
 import image1 from '../assets/Kashmiri_Apples.jpg';
 import image2 from '../assets/Amritsari_Pickles.jpg';
 import image3 from '../assets/Coconut_Oil_(Handmade).jpg';

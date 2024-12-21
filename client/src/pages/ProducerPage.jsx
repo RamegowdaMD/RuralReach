@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ProducerPage.css';
+import '../css/ProducerPage.css';
 
 const ProducerPage = () => {
   const [producerInfo, setProducerInfo] = useState({

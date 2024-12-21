@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import './PolicyAwareness.css';
+import '../css/PolicyAwareness.css';
 
 const PolicyAwareness = () => {
   const policies = [

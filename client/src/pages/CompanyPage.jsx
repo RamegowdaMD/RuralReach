@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './CompanyPage.css';
+import '../css/CompanyPage.css';
 
 const CompanyPage = () => {
   const [loanRequests, setLoanRequests] = useState([

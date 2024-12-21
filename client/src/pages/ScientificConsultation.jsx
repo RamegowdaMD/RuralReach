@@ -4,7 +4,8 @@ import {
   CardMedia, Chip, MenuItem, Select, FormControl, InputLabel 
 } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
-import './ScientificConsultation.css';
+import '../css/ScientificConsultation.css';
+
 const consultants = [
   {
     id: 1,
@@ -14,7 +15,7 @@ const consultants = [
     image: 'https://via.placeholder.com/150',
     description: 'Expert in advanced soil analysis and productivity improvement.',
     rating: 4.7,
-    availability: 'Monday - Friday, 10 AM - 2 PM'
+    availability: 'Monday - Friday, 10 AM - 2 PM',
   },
   {
     id: 2,
@@ -24,7 +25,7 @@ const consultants = [
     image: 'https://via.placeholder.com/150',
     description: 'Specialist in diagnosing and managing crop diseases.',
     rating: 4.5,
-    availability: 'Wednesday - Saturday, 1 PM - 5 PM'
+    availability: 'Wednesday - Saturday, 1 PM - 5 PM',
   },
   {
     id: 3,
@@ -34,7 +35,7 @@ const consultants = [
     image: 'https://via.placeholder.com/150',
     description: 'Provides expert advice on modern and sustainable farming techniques.',
     rating: 4.3,
-    availability: 'Tuesday - Friday, 11 AM - 3 PM'
+    availability: 'Tuesday - Friday, 11 AM - 3 PM',
   },
   {
     id: 4,
@@ -44,7 +45,7 @@ const consultants = [
     image: 'https://via.placeholder.com/150',
     description: 'Advises on improving operational efficiency in small-scale industries.',
     rating: 4.6,
-    availability: 'Monday - Thursday, 9 AM - 1 PM'
+    availability: 'Monday - Thursday, 9 AM - 1 PM',
   },
   {
     id: 5,
@@ -54,7 +55,7 @@ const consultants = [
     image: 'https://via.placeholder.com/150',
     description: 'Expert in developing strategies to scale small-scale businesses.',
     rating: 4.8,
-    availability: 'Tuesday - Friday, 10 AM - 4 PM'
+    availability: 'Tuesday - Friday, 10 AM - 4 PM',
   },
   {
     id: 6,
@@ -64,7 +65,7 @@ const consultants = [
     image: 'https://via.placeholder.com/150',
     description: 'Provides technical guidance for setting up and running efficient machinery.',
     rating: 4.4,
-    availability: 'Wednesday - Saturday, 10 AM - 3 PM'
+    availability: 'Wednesday - Saturday, 10 AM - 3 PM',
   },
   {
     id: 7,
@@ -74,7 +75,7 @@ const consultants = [
     image: 'https://via.placeholder.com/150',
     description: 'Assists small-scale industries in optimizing their packaging and logistics.',
     rating: 4.7,
-    availability: 'Monday - Friday, 2 PM - 6 PM'
+    availability: 'Monday - Friday, 2 PM - 6 PM',
   },
   {
     id: 8,
@@ -84,7 +85,7 @@ const consultants = [
     image: 'https://via.placeholder.com/150',
     description: 'Helps industries adopt modern IT solutions for operational improvement.',
     rating: 4.5,
-    availability: 'Tuesday - Saturday, 11 AM - 4 PM'
+    availability: 'Tuesday - Saturday, 11 AM - 4 PM',
   },
   {
     id: 9,
@@ -94,7 +95,7 @@ const consultants = [
     image: 'https://via.placeholder.com/150',
     description: 'Offers financial advice tailored to small-scale industry needs.',
     rating: 4.9,
-    availability: 'Monday - Thursday, 10 AM - 2 PM'
+    availability: 'Monday - Thursday, 10 AM - 2 PM',
   },
   {
     id: 10,
@@ -104,10 +105,9 @@ const consultants = [
     image: 'https://via.placeholder.com/150',
     description: 'Guides industries in innovating and developing new products.',
     rating: 4.8,
-    availability: 'Wednesday - Saturday, 12 PM - 5 PM'
-  }
+    availability: 'Wednesday - Saturday, 12 PM - 5 PM',
+  },
 ];
-
 
 const ScientificConsultation = () => {
   const [filter, setFilter] = useState('');
@@ -116,9 +116,9 @@ const ScientificConsultation = () => {
     setFilter(event.target.value);
   };
 
-  const filteredScientists = filter
-    ? scientists.filter((scientist) => scientist.specialization.includes(filter))
-    : scientists;
+  const filteredConsultants = filter
+    ? consultants.filter((consultant) => consultant.specialization.includes(filter))
+    : consultants;
 
   return (
     <Container maxWidth="lg" style={{ marginTop: '20px', marginBottom: '20px' }}>
@@ -145,51 +145,57 @@ const ScientificConsultation = () => {
 
       {/* Cards */}
       <Grid container spacing={4}>
-        {filteredScientists.map((scientist) => (
-          <Grid item xs={12} sm={6} md={4} key={scientist.id}>
-            <Card style={{ height: '100%', position: 'relative', overflow: 'hidden' }} className="hover-card">
-              <CardMedia
-                component="img"
-                alt={scientist.name}
-                height="150"
-                image={scientist.image}
-              />
-              <CardContent>
-                <Typography variant="h6" gutterBottom>
-                  {scientist.name}
-                </Typography>
-                <Typography variant="subtitle1" color="textSecondary" gutterBottom>
-                  {scientist.specialization}
-                </Typography>
-                <Box mb={2}>
-                  {scientist.expertise.map((exp, index) => (
-                    <Chip key={index} label={exp} color="primary" size="small" style={{ marginRight: '5px' }} />
-                  ))}
-                </Box>
-                <Typography variant="body2" color="textSecondary" gutterBottom>
-                  {scientist.description}
-                </Typography>
-                <Typography variant="body2" color="textSecondary" gutterBottom>
-                  <strong>Availability:</strong> {scientist.availability}
-                </Typography>
-                <Box mt={1} display="flex" alignItems="center">
-                  <StarIcon style={{ color: '#ff9800', marginRight: '5px' }} />
-                  <Typography variant="body2" color="textSecondary">
-                    {scientist.rating} / 5
+        {filteredConsultants.length === 0 ? (
+          <Typography variant="body1" color="textSecondary" style={{ textAlign: 'center', width: '100%' }}>
+            No consultants found matching your criteria.
+          </Typography>
+        ) : (
+          filteredConsultants.map((consultant) => (
+            <Grid item xs={12} sm={6} md={4} key={consultant.id}>
+              <Card style={{ height: '100%', position: 'relative', overflow: 'hidden' }} className="hover-card">
+                <CardMedia
+                  component="img"
+                  alt={consultant.name}
+                  height="150"
+                  image={consultant.image}
+                />
+                <CardContent>
+                  <Typography variant="h6" gutterBottom>
+                    {consultant.name}
                   </Typography>
-                </Box>
-                <Box mt={2} display="flex" justifyContent="space-around">
-                  <Button variant="outlined" color="primary" size="small">
-                    View Profile
-                  </Button>
-                  <Button variant="contained" color="primary" size="small">
-                    Book Appointment
-                  </Button>
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
+                  <Typography variant="subtitle1" color="textSecondary" gutterBottom>
+                    {consultant.specialization}
+                  </Typography>
+                  <Box mb={2}>
+                    {consultant.expertise.map((exp, index) => (
+                      <Chip key={index} label={exp} color="primary" size="small" style={{ marginRight: '5px' }} />
+                    ))}
+                  </Box>
+                  <Typography variant="body2" color="textSecondary" gutterBottom>
+                    {consultant.description}
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" gutterBottom>
+                    <strong>Availability:</strong> {consultant.availability}
+                  </Typography>
+                  <Box mt={1} display="flex" alignItems="center">
+                    <StarIcon style={{ color: '#ff9800', marginRight: '5px' }} />
+                    <Typography variant="body2" color="textSecondary">
+                      {consultant.rating} / 5
+                    </Typography>
+                  </Box>
+                  <Box mt={2} display="flex" justifyContent="space-around">
+                    <Button variant="outlined" color="primary" size="small">
+                      View Profile
+                    </Button>
+                    <Button variant="contained" color="primary" size="small">
+                      Book Appointment
+                    </Button>
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))
+        )}
       </Grid>
     </Container>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './LoanLandingPage.css';
+import '../css/LoanLandingPage.css';
 
 const LoanLandingPage = () => {
     const navigate = useNavigate();
