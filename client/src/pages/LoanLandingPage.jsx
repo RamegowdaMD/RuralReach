@@ -2,33 +2,41 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/LoanLandingPage.css';
 import NavForAll from '../components/NavForAll';
+import  Carousels from '../components/Carousel';
+import Footer from '../components/Footer';
 
 const LoanLandingPage = () => {
-    const navigate = useNavigate();
-  
-    // Navigate to the Producer Page when the "For Producers" button is clicked
+    const navigate = useNavigate(); 
     const handleProducerClick = () => {
-      navigate('/loan/producer'); // Navigate to ProducerPage under /loan route
+      navigate('/loan/producer'); 
     };
   
-    // Navigate to the Investor Page when the "For Investors" button is clicked
     const handleInvestorClick = () => {
-      navigate('/loan/investor'); // You can replace this with the actual route for the Investor page
+      navigate('/loan/investor'); 
     };
-
   return (
+    <>
+    <NavForAll/>
+   
     <div
-    className="loan-landing-wrapper"
+    className="loan-landing-wrapper my-5"
     style={{
-      minHeight: '100vh', // Full viewport height
+      minHeight: '100vh', 
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'flex-start',
-      padding: '20px', // Optional padding for better spacing
+      padding: '20px', 
     }}
   >
-    <NavForAll/>
-    <div className="landing-page">
+    
+    <div style={{ height: '50px', backgroundColor: '' }}>
+  {/* Content */}
+</div>
+
+    <Carousels/>
+   
+
+    <div className="landing-page pt-5">
       <h1>Welcome to the Loan Investment Platform</h1>
       <p>Choose your role to get started:</p>
       <div className="buttons-container">
@@ -41,6 +49,8 @@ const LoanLandingPage = () => {
       </div>
     </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

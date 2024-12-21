@@ -1,19 +1,22 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
-const UserModel = require('./models/User')
+const UserModel = require('./models/User');
+const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
+const connectDB = require('./config/db');
+const loanRoutes = require('./routes/loanRoutes');
 
 const app = express()
-app.use(express.json())
+
 app.use(cors())
 app.use(bodyParser.json());
+dotenv.config();
+connectDB();
 
-mongoose.connect("mongodb://127.0.0.1:27017/User"),
-{
-  useNewUrlParser: true, 
-  useUnifiedTopology: true 
-}
+app.use(express.json())
+
+app.use('/api/loans', loanRoutes);
 
 
 app.post("/Login", (req, res) => {
