@@ -1,7 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import ProfPic from "../assets/profile.png";
 
 const NavForAll = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
       <div className="container-fluid">
@@ -38,17 +46,59 @@ const NavForAll = () => {
             </li>
           </ul>
 
-          {/* Right Section - Login/Register */}
-          <div className="d-flex">
+          {/* Right Section - Profile Pic and Sidebar */}
+          <div className="d-flex align-items-center">
             <Link to="/register" className="btn btn-outline-primary me-2">
               Offers
             </Link>
-            {/* <Link to="/login" className="btn btn-primary">
-              Login
-            </Link> */}
+            <img
+              src= {ProfPic}
+              alt="Profile"
+              className="rounded-circle me-2"
+              style={{ width: "40px", height: "40px", cursor: "pointer" }}
+              onClick={toggleSidebar}
+            />
           </div>
         </div>
       </div>
+
+      {/* Sidebar */}
+      {isSidebarOpen && (
+        <div
+          className="position-fixed top-0 end-0 vh-100 bg-white shadow-lg"
+          style={{
+            width: "300px",
+            zIndex: 1050,
+            transition: "transform 0.3s ease-in-out",
+          }}
+        >
+          <div className="p-3">
+            <button
+              className="btn btn-primary mb-3 w-100"
+              onClick={() => navigate('/profile')}
+            >
+              Profile
+            </button>
+            <button
+              className="btn btn-danger mb-3 w-100"
+              onClick={toggleSidebar}
+            >
+              Close
+            </button>
+            <h4>User Details</h4>
+            <hr />
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Email:</strong> john.doe@example.com</p>
+            <p><strong>Member Since:</strong> January 2023</p>
+            <p>
+              <strong>Role:</strong> Producer
+            </p>
+            <button className="btn btn-outline-danger mt-5 w-100">
+              Logout
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
