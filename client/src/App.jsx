@@ -16,6 +16,7 @@ import AddProduct from './pages/AddProduct.jsx';
 import BuyProduct from './pages/BuyProduct.jsx';
 import ProductList from './pages/ProductList.jsx';
 import TrackSales from './pages/TrackSales.jsx';
+import LogisticsAndDelivery from './pages/LogisticsAndDelivery.jsx';
 function App() {
   return (
     <BrowserRouter>
@@ -35,6 +36,7 @@ function App() {
         <Route path="/track-sales" element={<TrackSales />} />
         <Route path="/buy-product/:id" element={<BuyProduct  />} />
         <Route path="/marketplace" element={<ProductList />} />
+        <Route path="/logistics" element={<LogisticsAndDelivery />} />
       </Routes>
     </BrowserRouter>
   );
