@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import ProfPic from "../assets/profile.png";
 
-const NavForAll = () => {
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import ProfPic from '../assets/profile.png';
+
+const NavForAll = ({ user }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -14,7 +15,7 @@ const NavForAll = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2 fixed-top">
       <div className="container-fluid">
         {/* Brand Logo */}
-        <Link className="navbar-brand fw-bold text-primary" to="/">
+        <Link className="navbar-brand fw-bold text-primary" to="/" style={{ fontSize: '40px' }}>
           RuralReach
         </Link>
 
@@ -40,19 +41,33 @@ const NavForAll = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-dark fw-semibold" to="/more">
-                More
-              </Link>
+              <a
+                href="https://www.instagram.com/iam_sjeevan?igsh=YmxxODVsMWhuMzEz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-link text-reset"
+              >
+                Contact Us
+              </a>
             </li>
           </ul>
 
-          {/* Right Section - Profile Pic and Sidebar */}
           <div className="d-flex align-items-center">
-            <Link to="/register" className="btn btn-outline-primary me-2">
-              Offers
-            </Link>
+            <select
+              className="form-select mx-3"
+              aria-label="Select Language"
+              style={{ maxWidth: '180px', margin: '0 auto' }}
+            >
+              <option value="english">English</option>
+              <option value="french">हिन्दी</option>
+              <option value="spanish">ಕನ್ನಡ</option>
+              <option value="german">தமிழ்</option>
+              <option value="telugu">తెలుగు</option>
+            </select>
+
+            {/* Profile Picture */}
             <img
-              src= {ProfPic}
+              src={ProfPic}
               alt="Profile"
               className="rounded-circle me-2"
               style={{ width: "40px", height: "40px", cursor: "pointer" }}
@@ -62,7 +77,7 @@ const NavForAll = () => {
         </div>
       </div>
 
-      {/* Sidebar */}
+      {/* Sidebar for User Info */}
       {isSidebarOpen && (
         <div
           className="position-fixed top-0 end-0 vh-100 bg-white shadow-lg"
@@ -85,17 +100,21 @@ const NavForAll = () => {
             >
               Close
             </button>
-            <h4>User Details</h4>
-            <hr />
-            <p><strong>Name:</strong> John Doe</p>
-            <p><strong>Email:</strong> john.doe@example.com</p>
-            <p><strong>Member Since:</strong> January 2023</p>
-            <p>
-              <strong>Role:</strong> Producer
-            </p>
-            <button className="btn btn-outline-danger mt-5 w-100">
-              Logout
-            </button>
+
+            {/* Display User Info */}
+            {user ? (
+              <div>
+                <h4>User Details</h4>
+                <hr />
+                <p><strong>Name:</strong> {user.name}</p>
+                <p><strong>Email:</strong> {user.email}</p>
+                <button className="btn btn-outline-danger mt-5 w-100">
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <p>Please log in to see profile details.</p>
+            )}
           </div>
         </div>
       )}

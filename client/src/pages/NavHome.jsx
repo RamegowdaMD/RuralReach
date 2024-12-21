@@ -6,10 +6,9 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
       <div className="container-fluid">
         {/* Brand Logo */}
-        <Link className="navbar-brand fw-bold text-primary" to="/">
-          RuralReach
-        </Link>
-
+        <Link className="navbar-brand fw-bold text-primary" to="/" style={{ fontSize: '40px' }}>
+  RuralReach
+</Link>
         {/* Mobile Toggle Button */}
         <button
           className="navbar-toggler"
@@ -32,9 +31,14 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-dark fw-semibold" to="/more">
-                More
-              </Link>
+            <a
+                href="https://www.instagram.com/iam_sjeevan?igsh=YmxxODVsMWhuMzEz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-link text-reset"
+              >
+                Contact Us
+              </a>
             </li>
           </ul>
 

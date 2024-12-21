@@ -7,21 +7,22 @@ import image3 from "../assets/consultation.jpeg";
 import image4 from "../assets/rentals.jpeg";
 import image5 from "../assets/insights.jpeg";
 import image6 from "../assets/logistics.jpeg";
-import image7 from "../assets/policy.jpeg";
-import image8 from "../assets/resources.jpeg";
+import image7 from "../assets/government.jpeg";
+import image8 from "../assets/edu.jpeg";
 import NavForAll from "../components/NavForAll";
 import Footer from '../components/footer';
 
-// Main HomePage Component
+
 const Main = () => {
   return (
     <>
       <div>
         <NavForAll />
       </div>
+  
       <div className="container-fluid p-0">
-        {/* Header Section */}
-        <header className="bg-light text-center py-5">
+       
+        <header className="bg-light text-center py-5 mt-5">
           <h1 className="display-4">
             Empowering Producers: Comprehensive E-commerce Platform
           </h1>
@@ -29,10 +30,8 @@ const Main = () => {
             Connecting Producers to Customers and Opportunities
           </p>
         </header>
-
-        {/* Features Section */}
         <section className="py-5">
-          <h2 className="text-center mb-4">Key Features</h2>
+          <h2 className="text-center mb-4 text-primary">Key Features</h2>
           <div className="row g-4">
             <FeatureCard
               title="Direct-to-Customer Marketplace"
@@ -85,21 +84,6 @@ const Main = () => {
           </div>
         </section>
 
-        {/* Call-to-Action Section */}
-        {/* <section className="bg-primary text-white text-center py-5">
-          <h2 className="mb-3">Join Our Platform Today!</h2>
-          <p className="mb-4">
-            Empower your farming journey with our comprehensive solutions.
-          </p>
-          <button className="btn btn-light btn-lg">Get Started</button>
-        </section> */}
-
-        {/* Footer Section */}
-        {/* <footer className="bg-dark text-white text-center py-3">
-          <p className="mb-0">
-            &copy; 2024 Empowering Producers. All rights reserved.
-          </p>
-        </footer> */}
         <Footer/>
       </div>
     </>

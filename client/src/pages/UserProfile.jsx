@@ -1,44 +1,21 @@
-import React, { useState } from "react";
-import '../css/UserProfile.css';
-import orders from "../assets/orders.png";
-import needs from "../assets/needs.png";
 
-const UserProfile = () => {
-  const [address, setAddress] = useState("");
+import React from 'react';
 
+const UserProfile = ({ user }) => {
   return (
-    <div className="user-profile">
-      <h2 className="profile-header">User Profile</h2>
-      <div className="profile-info">
-        <p><strong>Name:</strong> John Doe</p>
-        <p><strong>Email:</strong> john.doe@example.com</p>
-        {address ? (
-          <p><strong>Address:</strong> {address}</p>
-        ) : (
-          <div className="address-input">
-            <label htmlFor="address">Enter Address:</label>
-            <input
-              type="text"
-              id="address"
-              placeholder="Enter your address"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-            />
-          </div>
-        )}
-      </div>
-      <div className="profile-buttons">
-        <button className="profile-action-button">
-          <img src={orders} alt="Your Orders Icon" className="button-icon" />
-          Your Orders
-        </button>
-        <button className="profile-action-button">
-        <img src={needs} alt="Future Needs Icon" className="button-icon" />
-          Future Needs
-        </button>
+    <div className="container mt-5">
+      <h2 className="text-center">Profile</h2>
+      <div className="card mx-auto" style={{ width: '30rem' }}>
+        <img src={user?.image || 'https://via.placeholder.com/150'} alt="Profile" className="card-img-top rounded-circle" style={{ width: '150px', margin: '0 auto' }} />
+        <div className="card-body">
+          <h5 className="card-title text-center">{user?.name}</h5>
+          <p className="card-text text-center">{user?.email}</p>
+          <p><strong>Role:</strong> {user?.Role || 'N/A'}</p>
+          <p><strong>Member Since:</strong> {user?.Member_Since || 'N/A'}</p>
+        </div>
       </div>
     </div>
   );
 };
-//sbdjn
+
 export default UserProfile;

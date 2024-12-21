@@ -6,8 +6,8 @@ import image3 from "../assets/consultation.jpeg";
 import image4 from "../assets/rentals.jpeg";
 import image5 from "../assets/insights.jpeg";
 import image6 from "../assets/logistics.jpeg";
-import image7 from "../assets/policy.jpeg";
-import image8 from "../assets/resources.jpeg";
+import image7 from "../assets/government.jpeg";
+import image8 from "../assets/edu.jpeg";
 import Navbar from "./NavHome";
 import Footer from '../components/footer';
 
@@ -18,11 +18,12 @@ const HomePage = () => {
       <div>
         <Navbar />
       </div>
-      <div className="container-fluid p-0">
+      <div className="container-fluid p-0 mt-1">
         {/* Header Section */}
         <header className="bg-light text-center py-5">
           <h1 className="display-4">
-            Empowering Producers: Comprehensive E-commerce Platform
+          Where Producers Grow Together, Through 
+Education, Employment, and Direct Sale
           </h1>
           <p className="lead">
             Connecting Producers to Customers and Opportunities
@@ -31,7 +32,8 @@ const HomePage = () => {
 
         {/* Features Section */}
         <section className="py-5">
-          <h2 className="text-center mb-4">Key Features</h2>
+        <h2 className="text-center mb-4 text-primary">Key Features</h2>
+
           <div className="row g-4">
             <FeatureCard
               title="Direct-to-Customer Marketplace"

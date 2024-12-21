@@ -45,9 +45,9 @@ function Footer() {
           {/* Contact Section */}
           <div className="col-md-4 mb-4">
             <h5 className="fw-bold">Contact Us</h5>
-            <p>Email: support@empoweringproducers.com</p>
-            <p>Phone: +1 (555) 123-4567</p>
-            <p>Address: 123 Innovation Street, City, Country</p>
+            <p>Email: support@RuralReach.com</p>
+            <p>Phone: 7483907232</p>
+            <p>Address: MSRIT Post, M S Ramaiah Nagar, MSR Nagar, Bengaluru, Karnataka 560054</p>
           </div>
         </div>
 

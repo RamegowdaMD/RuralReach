@@ -1,69 +1,92 @@
-import React from 'react'
-import {Link ,useNavigate} from 'react-router-dom'
-import { useState } from 'react'
-import axios from 'axios'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import image1 from '../assets/bg.jpeg'; // Import your background image
 
-function Login() {
+function Login({ setUser }) {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
-    const [email , setEmail] = useState()
-    const [password , setPassword] = useState()
-    const navigate = useNavigate()
-
-    const handleSubmit = (e) =>
-    {
-        e.preventDefault()
-        axios.post('http://localhost:3000/Login' , {email, password})
-        .then(result =>{console.log(result)
-            if(result.data === "Success")
-            {   alert("user registered successfully")
-                const userName = result.data.name; 
-                navigate('/Main', { state: { name: userName } });
-            }
-            else{
-                alert("User not found")
-            }
-        })
-        .catch(err=> console.log(err))
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios.post('http://localhost:3000/Login', { email, password })
+            .then(result => {
+                if (result.data !== "No User Found" && result.data !== "Password is Incorrect") {
+                    alert("User logged in successfully");
+                    setUser(result.data); // Pass user data to parent state
+                    navigate('/Main');
+                } else {
+                    alert(result.data);
+                }
+            })
+            .catch(err => console.log(err));
     }
 
-  return (
-    <div className='container-fluid d-flex justify-content-center align-items-center bg-secondary vh-100'>
-        <div className='bg-white p-4 rounded w-100' style={{ maxWidth: '400px' }}>
-            <h2 className="text-center mb-4">Login</h2>
-            <form action="" onSubmit={handleSubmit}>
-                <div className='mb-3'>
-                    <label htmlFor="email">
-                        <strong>Email</strong>
-                    </label>
-                    <input type="text"
-                    placeholder='Enter Name'
-                    autoComplete='off'
-                    name='email'
-                    className='form-control rounded-0'
-                    required
-                    onChange={(e)=>setEmail(e.target.value)}
-                     />
-                </div>
-                <div className='mb-3'>
-                    <label htmlFor="password">
-                        <strong>Password</strong>
-                    </label>
-                    <input type="text"
-                    placeholder='Enter Name'
-                    autoComplete='off'
-                    name='password'
-                    className='form-control rounded-0'
-                    required
-                    onChange={(e)=>setPassword(e.target.value)}
-                     />
-                </div>
-                <button type='submit' className='btn btn-primary w-100 rounded-0 mb-3'>Login</button>
+    return (
+        <div
+            className="d-flex justify-content-center align-items-center vh-100"
+            style={{
+                backgroundImage: `url(${image1})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundAttachment: 'fixed',
+            }}
+        >
+            <div
+                className="bg-gradient p-5 rounded shadow w-100"
+                style={{
+                    maxWidth: '450px',
+                    background: 'linear-gradient(to bottom right, #ff7e5f, #feb47b)',
+                    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
+                }}
+            >
+                <h2 className="text-center mb-4 text-white">Login</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-3">
+                        <label htmlFor="email" className="form-label text-white">
+                            <strong>Email</strong>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Enter Email"
+                            autoComplete="off"
+                            name="email"
+                            className="form-control border-light rounded-3"
+                            required
+                            onChange={(e) => setEmail(e.target.value)}
+                            style={{ backgroundColor: "#fff1e6" }}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="password" className="form-label text-white">
+                            <strong>Password</strong>
+                        </label>
+                        <input
+                            type="password"
+                            placeholder="Enter Password"
+                            autoComplete="off"
+                            name="password"
+                            className="form-control border-light rounded-3"
+                            required
+                            onChange={(e) => setPassword(e.target.value)}
+                            style={{ backgroundColor: "#fff1e6" }}
+                        />
+                    </div>
+                    <button type="submit" className="btn btn-light w-100 rounded-3 shadow-sm mb-3">
+                        Login
+                    </button>
                 </form>
-                <p className="text-center">Do Not Have an Account </p>
-                <Link to="/Register" className='btn btn-default border w-100 bg-light rounded-0 text-decoration-none'>Register</Link>
+                <p className="text-center text-white">
+                    Don't have an account?{' '}
+                    <Link to="/Register" className="text-decoration-none text-light fw-bold">
+                        Register
+                    </Link>
+                </p>
+            </div>
         </div>
-    </div>
-  )
+    );
 }
 
-export default Login
+export default Login;
+
