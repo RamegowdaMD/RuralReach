@@ -67,7 +67,16 @@ const RentalsPage = () => {
     }, [rentalRequests]);
 
     return (
-        <>
+        <div
+    className="rentals-wrapper"
+    style={{
+      minHeight: '100vh', // Full viewport height
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      padding: '20px', // Optional padding for better spacing
+    }}
+  >
             <NavRental />
             <div className="container my-5">
                 <h1 className="text-center mb-4">Machinery and Vehicle Rentals</h1>
@@ -202,7 +211,7 @@ const RentalsPage = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

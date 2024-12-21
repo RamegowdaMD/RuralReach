@@ -45,7 +45,16 @@ const MarketAnalyticsPage = () => {
   };
 
   return (
-    <>
+    <div
+    className="scientific-consultation-wrapper"
+    style={{
+      minHeight: '100vh', // Full viewport height
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      padding: '20px', // Optional padding for better spacing
+    }}
+  >
    <NavForAll/>
     <div className="market-analytics-page">
       <h1>Market Analytics</h1>
@@ -80,7 +89,7 @@ const MarketAnalyticsPage = () => {
         )}
       </div>
     </div>
-    </>
+    </div>
   );
 };
 

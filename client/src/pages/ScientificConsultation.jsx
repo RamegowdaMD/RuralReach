@@ -123,7 +123,16 @@ const ScientificConsultation = () => {
     : consultants;
 
   return (
-    <>
+    <div
+    className="scientific-consultation-wrapper"
+    style={{
+      minHeight: '100vh', // Full viewport height
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      padding: '20px', // Optional padding for better spacing
+    }}
+  >
     <NavForAll/>
     <Container maxWidth="lg" style={{ marginTop: '20px', marginBottom: '20px' }}>
       {/* Title */}
@@ -202,7 +211,7 @@ const ScientificConsultation = () => {
         )}
       </Grid>
     </Container>
-    </>
+    </div>
   );
 };
 

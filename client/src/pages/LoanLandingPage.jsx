@@ -6,18 +6,27 @@ import NavForAll from '../components/NavForAll';
 const LoanLandingPage = () => {
     const navigate = useNavigate();
   
-   
+    // Navigate to the Producer Page when the "For Producers" button is clicked
     const handleProducerClick = () => {
-      navigate('/loan/producer'); 
+      navigate('/loan/producer'); // Navigate to ProducerPage under /loan route
     };
   
-    
+    // Navigate to the Investor Page when the "For Investors" button is clicked
     const handleInvestorClick = () => {
-      navigate('/loan/investor');
+      navigate('/loan/investor'); // You can replace this with the actual route for the Investor page
     };
 
   return (
-    <>
+    <div
+    className="loan-landing-wrapper"
+    style={{
+      minHeight: '100vh', // Full viewport height
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      padding: '20px', // Optional padding for better spacing
+    }}
+  >
     <NavForAll/>
     <div className="landing-page">
       <h1>Welcome to the Loan Investment Platform</h1>
@@ -31,7 +40,7 @@ const LoanLandingPage = () => {
         </button>
       </div>
     </div>
-    </>
+    </div>
   );
 };
 

@@ -3,6 +3,16 @@ import React from 'react';
 
 const UserProfile = ({ user }) => {
   return (
+    <div
+    className="scientific-consultation-wrapper"
+    style={{
+      minHeight: '100vh', // Full viewport height
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      padding: '20px', // Optional padding for better spacing
+    }}
+  >
     <div className="container mt-5">
       <h2 className="text-center">Profile</h2>
       <div className="card mx-auto" style={{ width: '30rem' }}>
@@ -14,6 +24,7 @@ const UserProfile = ({ user }) => {
           <p><strong>Member Since:</strong> {user?.Member_Since || 'N/A'}</p>
         </div>
       </div>
+    </div>
     </div>
   );
 };

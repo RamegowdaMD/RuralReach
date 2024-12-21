@@ -7,16 +7,14 @@ function Footer() {
 
   return (
     <footer
-      className={`footer py-5 ${
-        isDarkMode ? "bg-dark text-white" : "bg-primary text-dark"
-      }`}
+      className={`footer py-5 ${isDarkMode ? "bg-dark text-white" : "bg-white text-dark"}`}
     >
       <div className="container">
         <div className="row">
           {/* About Section */}
           <div className="col-md-4 mb-4">
             <h5 className="fw-bold">About Us</h5>
-            <p>
+            <p className={`fw ${isDarkMode ? "text-white" : "text-dark"}`}>
               Empowering producers through innovative e-commerce solutions,
               bridging the gap between them and global opportunities.
             </p>
@@ -71,14 +69,14 @@ function Footer() {
 
           {/* Contact Section */}
           <div className="col-md-4 mb-4">
-            <h5 className="fw-bold">Contact Us</h5>
-            <p>Email: support@empoweringproducers.com</p>
-            <p>Phone: +1 (555) 123-4567</p>
-            <p>Address: 123 Innovation Street, City, Country</p>
+            <h5 className={"fw-bold"}>Contact Us</h5>
+            <p className={`fw ${isDarkMode ? "text-white" : "text-dark"}`}>Email: support@empoweringproducers.com</p>
+            <p className={`fw ${isDarkMode ? "text-white" : "text-dark"}`}>Phone: +1 (555) 123-4567</p>
+            <p className={`fw ${isDarkMode ? "text-white" : "text-dark"}`}>Address: 123 Innovation Street, City, Country</p>
           </div>
         </div>
 
-        <hr className={isDarkMode ? "bg-white" : "bg-primary"} />
+        <hr className={isDarkMode ? "bg-white" : "bg-dark"} />
 
         {/* Footer Bottom */}
         <div className="text-center">

@@ -26,7 +26,16 @@ const LogisticsAndDelivery = () => {
   };
 
   return (
-    <>
+    <div
+    className="logistics-wrapper"
+    style={{
+      minHeight: '100vh', // Full viewport height
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      padding: '20px', // Optional padding for better spacing
+    }}
+  >
     <NavForAll/>
     <div className="container mt-5">
       <h1 className="text-center mb-4">Logistics and Delivery Integration</h1>
@@ -72,7 +81,7 @@ const LogisticsAndDelivery = () => {
         <button type="submit" className="btn btn-primary w-100">Submit</button>
       </form>
     </div>
-    </>
+    </div>
   );
 };
 

@@ -43,7 +43,16 @@ const EducationalResources = () => {
   ];
 
   return (
-    <>
+    <div
+    className="educational-wrapper"
+    style={{
+      minHeight: '100vh', // Full viewport height
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      padding: '20px', // Optional padding for better spacing
+    }}
+  >
     <NavForAll/>
     <div className="container my-5">
       {/* Horizontal Scrolling Text */}
@@ -90,7 +99,7 @@ const EducationalResources = () => {
         ))}
       </div>
     </div>
-    </>
+    </div>
   );
 };
 
