@@ -3,13 +3,20 @@ import { Link, useNavigate } from 'react-router-dom';
 import ProfPic from '../assets/profile.png';
 import { useTheme } from '../pages/ThemeContext'; // Import useTheme hook
 
-const NavForAll = ({ user }) => {
+const NavForAll = ({ user, setUser }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
   const { isDarkMode, toggleTheme } = useTheme(); // Use the useTheme hook to get dark mode state
 
+  // Toggle sidebar open/close
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  // Handle user logout
+  const handleLogout = () => {
+    setUser(null); // Clear user state
+    navigate('/Login'); // Redirect to Login page
   };
 
   return (
@@ -57,6 +64,7 @@ const NavForAll = ({ user }) => {
             </li>
           </ul>
 
+          {/* Language Selector and Profile Picture */}
           <div className="d-flex align-items-center">
             <select
               className={`form-select mx-3 ${isDarkMode ? 'text-light bg-dark' : ''}`}
@@ -64,9 +72,9 @@ const NavForAll = ({ user }) => {
               style={{ maxWidth: '180px', margin: '0 auto' }}
             >
               <option value="english">English</option>
-              <option value="french">हिन्दी</option>
-              <option value="spanish">ಕನ್ನಡ</option>
-              <option value="german">தமிழ்</option>
+              <option value="hindi">हिन्दी</option>
+              <option value="kannada">ಕನ್ನಡ</option>
+              <option value="tamil">தமிழ்</option>
               <option value="telugu">తెలుగు</option>
             </select>
 
@@ -75,7 +83,7 @@ const NavForAll = ({ user }) => {
               src={ProfPic}
               alt="Profile"
               className="rounded-circle me-2"
-              style={{ width: "40px", height: "40px", cursor: "pointer" }}
+              style={{ width: '40px', height: '40px', cursor: 'pointer' }}
               onClick={toggleSidebar}
             />
           </div>
@@ -87,18 +95,21 @@ const NavForAll = ({ user }) => {
         <div
           className={`position-fixed top-0 end-0 vh-100 ${isDarkMode ? 'bg-dark text-light' : 'bg-white text-dark'} shadow-lg`}
           style={{
-            width: "300px",
+            width: '300px',
             zIndex: 1050,
-            transition: "transform 0.3s ease-in-out",
+            transition: 'transform 0.3s ease-in-out',
           }}
         >
           <div className="p-3">
+            {/* Profile Button */}
             <button
               className={`btn ${isDarkMode ? 'btn-light' : 'btn-primary'} mb-3 w-100`}
               onClick={() => navigate('/profile')}
             >
               Profile
             </button>
+
+            {/* Close Sidebar Button */}
             <button
               className={`btn ${isDarkMode ? 'btn-light' : 'btn-danger'} mb-3 w-100`}
               onClick={toggleSidebar}
@@ -114,14 +125,17 @@ const NavForAll = ({ user }) => {
               {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
             </button>
 
-            {/* Display User Info */}
+            {/* User Details or Login Prompt */}
             {user ? (
               <div>
                 <h4>User Details</h4>
                 <hr />
                 <p><strong>Name:</strong> {user.name}</p>
                 <p><strong>Email:</strong> {user.email}</p>
-                <button className="btn btn-outline-danger mt-5 w-100">
+                <button
+                  className="btn btn-outline-danger mt-5 w-100"
+                  onClick={handleLogout}
+                >
                   Logout
                 </button>
               </div>
