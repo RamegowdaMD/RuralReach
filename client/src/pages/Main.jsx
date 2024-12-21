@@ -25,13 +25,11 @@ const Main = () => {
         <NavForAll />
       </div>
 
-      <div className="container-fluid p-0">
-        <header
-          className={`text-center py-5 mt-5 ${isDarkMode ? "bg-dark text-light" : "bg-light text-dark"}`}
-          style={{ transition: "all 0.3s ease" }}
-        >
+      <div className="container-fluid p-0 pt-5">
+                <header  className={`text-center py-5 mt-5   ${isDarkMode ? "bg-dark text-light" : "bg-light text-dark"}`}>
           <h1 className="display-4" style={{ color: textColor, fontWeight: 'bold' }}>
-            Empowering Producers: Comprehensive E-commerce Platform
+          Where Producers Grow Together, Through 
+Education, Employment, and Direct Sale
           </h1>
           <p className="lead" style={{ color: textColor, fontWeight: 'bold' }}>
             Connecting Producers to Customers and Opportunities

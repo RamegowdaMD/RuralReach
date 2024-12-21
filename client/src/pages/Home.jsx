@@ -13,6 +13,7 @@ import Footer from '../components/footer';
 
 // Main HomePage Component
 const HomePage = () => {
+  
   return (
     <>
       <div>

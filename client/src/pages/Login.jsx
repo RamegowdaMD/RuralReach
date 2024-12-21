@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import image1 from '../assets/bg.jpeg'; // Import your background image
+import image1 from '../assets/bg.jpeg'; 
+import { useUser } from '../UserContext'; 
 
-function Login({ setUser }) {
+function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const { setUser } = useUser(); 
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
@@ -14,7 +16,7 @@ function Login({ setUser }) {
             .then(result => {
                 if (result.data !== "No User Found" && result.data !== "Password is Incorrect") {
                     alert("User logged in successfully");
-                    setUser(result.data); // Pass user data to parent state
+                    setUser(result.data); 
                     navigate('/Main');
                 } else {
                     alert(result.data);
@@ -89,4 +91,3 @@ function Login({ setUser }) {
 }
 
 export default Login;
-

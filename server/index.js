@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const UserModel = require('./models/User')
 const bodyParser = require('body-parser');
-const loanRoutes = require('./routes/loanRoutes');
 
 const app = express()
 app.use(express.json())
@@ -34,7 +33,7 @@ app.post("/Login", (req, res) => {
       .catch(err => console.log(err));
   });
   
-  app.use('/api', loanRequestRoutes);
+
 
 
 app.post('/Register',(req ,res)=>
