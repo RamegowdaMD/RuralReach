@@ -9,7 +9,7 @@ import image5 from "../assets/insights.jpeg";
 import image6 from "../assets/logistics.jpeg";
 import image7 from "../assets/policy.jpeg";
 import image8 from "../assets/resources.jpeg";
-import Navbar from "./NavHome";
+import NavForAll from "../components/NavForAll";
 import Footer from '../components/footer';
 
 // Main HomePage Component
@@ -17,7 +17,7 @@ const Main = () => {
   return (
     <>
       <div>
-        <Navbar />
+        <NavForAll />
       </div>
       <div className="container-fluid p-0">
         {/* Header Section */}
