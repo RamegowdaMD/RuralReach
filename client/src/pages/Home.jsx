@@ -51,7 +51,7 @@ Education, Employment, and Direct Sale
             <FeatureCard
               title="Scientific Consultation"
               description="Connect with agricultural scientists for expert advice and soil testing."
-              image={image3}
+              image={image6}
               link="/Login"
             />
             <FeatureCard
@@ -69,7 +69,7 @@ Education, Employment, and Direct Sale
             <FeatureCard
               title="Logistics and Delivery Integration"
               description="Expand your market reach with seamless delivery systems."
-              image={image6}
+              image={image3}
               link="/Login"
             />
             <FeatureCard

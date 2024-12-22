@@ -5,10 +5,9 @@ const path = require('path');
 
 const router = express.Router();
 
-// Configure multer to store files in the "uploads" directory
 const upload = multer({
-    dest: 'uploads/', // Ensure this directory exists
-    limits: { fileSize: 5 * 1024 * 1024 }, // Limit file size to 5MB
+    dest: 'uploads/',
+    limits: { fileSize: 5 * 1024 * 1024 },
     fileFilter: (req, file, cb) => {
         const fileTypes = /jpeg|jpg|png/;
         const extName = fileTypes.test(path.extname(file.originalname).toLowerCase());
@@ -22,7 +21,6 @@ const upload = multer({
     },
 });
 
-// Route to handle product submission
 router.post('/submit', upload.single('image'), async (req, res) => {
     const { name, price, quantity, owner, contact, email } = req.body;
     const image = req.file ? req.file.path : null;
