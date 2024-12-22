@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavRental from '../components/NavRental';
+import NavForAll from '../components/NavForAll'
 
 const RentalsPage = () => {
     const navigate = useNavigate();
@@ -77,8 +77,8 @@ const RentalsPage = () => {
       padding: '20px', // Optional padding for better spacing
     }}
   >
-            <NavRental />
-            <div className="container my-5">
+            <NavForAll/>
+            <div className="container my-5 pt-5">
                 <h1 className="text-center mb-4">Machinery and Vehicle Rentals</h1>
 
                 {/* Display Rental Requests */}
