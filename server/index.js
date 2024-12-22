@@ -1,15 +1,17 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const cors = require('cors')
+const cors = require('cors');
 const UserModel = require('./models/User');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
 const loanRoutes = require('./routes/loanRoutes');
+const productRoutes = require('./routes/products');
 
 const app = express()
-
-app.use(cors())
+app.use(cors({
+  origin: 'http://localhost:5174', // Frontend origin
+}));
 app.use(bodyParser.json());
 dotenv.config();
 connectDB();
@@ -17,6 +19,7 @@ connectDB();
 app.use(express.json())
 
 app.use('/api/loans', loanRoutes);
+app.use('/api/products', productRoutes);
 
 
 app.post("/Login", (req, res) => {

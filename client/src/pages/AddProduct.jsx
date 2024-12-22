@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-const AddProduct = ({ onAdd }) => {
+const AddProduct = () => {
   const [product, setProduct] = useState({
     name: '',
     price: '',
@@ -11,7 +12,7 @@ const AddProduct = ({ onAdd }) => {
     email: '',
     image: null, // To store the image file
   });
-  const [imagePreview, setImagePreview] = useState(null); // To show the image preview
+  const [imagePreview, setImagePreview] = useState(null);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -32,22 +33,37 @@ const AddProduct = ({ onAdd }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const newProduct = { ...product, id: Date.now() };
-    onAdd(newProduct);
-    navigate('/');
-  };
 
+    const formData = new FormData();
+    for (let key in product) {
+      formData.append(key, product[key]);
+    }
+
+    try {
+      const response = await axios.post('http://localhost:5000/api/products/add', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      console.log('Product added:', response.data);
+      navigate('/'); // Redirect after successful submission
+    } catch (error) {
+      console.error('Error adding product:', error);
+    }
+  };
+  
   return (
     <div
       className="page-wrapper"
       style={{
-        minHeight: '100vh', // Full viewport height
+        minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',
-        padding: '20px', // Optional padding for better spacing
+        padding: '20px',
       }}
     >
       <div className="container mt-4">
@@ -124,7 +140,6 @@ const AddProduct = ({ onAdd }) => {
             />
           </div>
 
-          {/* Display the image preview */}
           {imagePreview && (
             <div className="mb-3">
               <img
