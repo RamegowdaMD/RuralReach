@@ -9,23 +9,26 @@ import image5 from '../assets/Organic_Tea_Leaves.jpg';
 import image6 from '../assets/Handmade_Jute_Bags.jpg';
 import image7 from '../assets/Alphonso_Mangoes.jpg';
 import image8 from '../assets/Handmade_Pottery.jpg';
+import scattered from '../assets/scattered.png'; // New image for scattered clouds
+import overcast from '../assets/overcast.png'; // New image for overcast clouds
 import NavForAll from '../components/NavForAll';
 
 const MarketAnalyticsPage = () => {
   const [selectedRegion, setSelectedRegion] = useState('');
   const [products, setProducts] = useState([]);
   const [weatherData, setWeatherData] = useState(null);
+  const [weatherImage, setWeatherImage] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   const apiKey = '03f17838d62bb17d355415bccca16b0d'; // Replace with your API key
 
-  // Coordinates for regions (example values)
+  // Coordinates for regions
   const regionCoordinates = {
-    'North India': { lat: 34.0837, lon: 74.7973 }, // Example: Srinagar
-    'South India': { lat: 12.9716, lon: 77.5946 }, // Example: Bangalore
-    'East India': { lat: 26.8500, lon: 89.3833 }, // Example: Assam
-    'West India': { lat: 19.0760, lon: 72.8777 }, // Example: Mumbai
+    'North India': { lat: 34.0837, lon: 74.7973 },
+    'South India': { lat: 12.9716, lon: 77.5946 },
+    'East India': { lat: 26.8500, lon: 89.3833 },
+    'West India': { lat: 19.0760, lon: 72.8777 },
   };
 
   const productsData = {
@@ -55,8 +58,18 @@ const MarketAnalyticsPage = () => {
         `https://api.agromonitoring.com/agro/1.0/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
       );
       setWeatherData(response.data);
+
+      // Determine the image based on weather description
+      const weatherDescription = response.data.weather[0].description.toLowerCase();
+      if (weatherDescription.includes('scattered clouds')) {
+        setWeatherImage(scattered);
+      } else if (weatherDescription.includes('overcast clouds')) {
+        setWeatherImage(overcast);
+      } else {
+        setWeatherImage(''); // No image for other conditions
+      }
     } catch (err) {
-      console.error(err); // Log the error for debugging
+      console.error(err);
       setError('Failed to fetch weather data. Please try again later.');
     } finally {
       setLoading(false);
@@ -127,6 +140,13 @@ const MarketAnalyticsPage = () => {
               <p>Temperature: {weatherData.main.temp}°C</p>
               <p>Humidity: {weatherData.main.humidity}%</p>
               <p>Weather: {weatherData.weather[0].description}</p>
+              {weatherImage && (
+                <img
+                  src={weatherImage}
+                  alt="Weather Condition"
+                  style={{ width: '300px', height: '200px', objectFit: 'cover' }}
+                />
+              )}
             </div>
           ) : null}
         </div>
