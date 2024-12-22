@@ -21,6 +21,7 @@ import TrackSales from './pages/TrackSales.jsx';
 import LogisticsAndDelivery from './pages/LogisticsAndDelivery.jsx';
 import EducationalResources from './pages/EducationalResources.jsx';
 import UserProfile from './pages/UserProfile.jsx';
+import WeatherApp from './pages/WeatherApp.jsx';
 
 function App() {
   // Add user state
@@ -50,6 +51,7 @@ function App() {
         <Route path="/logistics" element={<LogisticsAndDelivery />} />
         <Route path="/resources" element={<EducationalResources />} />
         <Route path="/profile" element={<UserProfile />} />
+        <Route path="/Weather" element={<WeatherApp/>}/>
       </Routes>
     </BrowserRouter>
     </ThemeProvider>

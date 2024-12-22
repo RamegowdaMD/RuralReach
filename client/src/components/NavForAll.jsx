@@ -72,13 +72,9 @@ const NavForAll = () => {
 
                    
                     <div className="d-flex align-items-center">
-                    <img
-                            src={ProfPic}
-                            alt="Profile"
-                            className="rounded-circle me-2"
-                            style={{ width: '40px', height: '40px', cursor: 'pointer' }}
-                            onClick={WeatherApp}
-                        />
+                    <Link to="/Weather" className="btn btn-outline-primary me-2">
+              Weather
+            </Link>
 
                         <select
                             className={`form-select mx-3 ${isDarkMode ? 'text-light bg-dark' : ''}`}
