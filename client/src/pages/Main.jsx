@@ -16,7 +16,7 @@ const Main = () => {
   const { isDarkMode } = useTheme(); // Get the dark mode state
 
   // Define text color based on dark mode
-  const textColor = isDarkMode ? '#FFFFFF' : '#1D4ED8'; // Dark blue for dark mode, standard blue for light mode
+  const textColor = isDarkMode ? '#FFFFFF' : '#3b3b3b'; // Dark blue for dark mode, standard blue for light mode
   const descriptionColor = isDarkMode ? '#A1A1AA' : '#4B5563'; // Lighter grey for dark mode, standard grey for light mode
 
   return (
@@ -37,7 +37,7 @@ Education, Employment, and Direct Sale
         </header>
         
         <section className="py-5">
-          <h2 className="text-center mb-4" style={{ color: textColor }}>Key Features</h2>
+          <h2 className="text-center mb-4 text-primary" style={{ color: textColor }}>Key Features</h2>
           <div className="row g-4">
             <FeatureCard
               title="Direct-to-Customer Marketplace"

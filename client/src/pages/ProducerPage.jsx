@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../css/ProducerPage.css";
 import NavForAll from "../components/NavForAll";
+import Footer from "../components/footer";
 
 const ProducerPage = () => {
   const [producerInfo, setProducerInfo] = useState({
@@ -16,83 +17,106 @@ const ProducerPage = () => {
     setProducerInfo({ ...producerInfo, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Loan request submitted", producerInfo);
+    try {
+      const response = await fetch('http://localhost:3000/api/loans/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(producerInfo),
+      });
+  
+      const data = await response.json();
+      if (response.ok) {
+        console.log('Loan request submitted successfully:', data);
+      } else {
+        console.error('Error:', data);
+      }
+    } catch (error) {
+      console.error('Error submitting loan request:', error);
+    }
   };
 
   return (
-    <div
-      className="producer-wrapper"
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        padding: "20px",
-      }}
-    >
-      <NavForAll/>
-      <div className="producer-page">
-        <h1>Producer Loan Request</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Business Name</label>
-            <input
-              type="text"
-              name="businessName"
-              value={producerInfo.businessName}
-              onChange={handleChange}
-              required
-            />
-          </div>
 
-          <div className="form-group">
-            <label>Assets</label>
-            <input
-              type="text"
-              name="assets"
-              value={producerInfo.assets}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label>KYC Information</label>
-            <textarea
-              name="kycInfo"
-              value={producerInfo.kycInfo}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Requested Loan Amount</label>
-            <input
-              type="number"
-              name="requestedAmount"
-              value={producerInfo.requestedAmount}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Reason for Loan</label>
-            <textarea
-              name="reasonForLoan"
-              value={producerInfo.reasonForLoan}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <button type="submit">Submit Loan Request</button>
-        </form>
+    <div className="producer-wrapper bg-light pt-5">
+    <NavForAll />
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-8">
+          <h1 className="text-center mb-4">Producer Loan Request</h1>
+          <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow-sm">
+            <div className="mb-3">
+              <label className="form-label">Business Name</label>
+              <input
+                type="text"
+                name="businessName"
+                value={producerInfo.businessName}
+                onChange={handleChange}
+                className="form-control"
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Assets</label>
+              <input
+                type="text"
+                name="assets"
+                value={producerInfo.assets}
+                onChange={handleChange}
+                className="form-control"
+                required
+              />
+            </div>
+  
+            <div className="mb-3">
+              <label className="form-label">KYC Information</label>
+              <textarea
+                name="kycInfo"
+                value={producerInfo.kycInfo}
+                onChange={handleChange}
+                className="form-control"
+                rows="4"
+                required
+              />
+            </div>
+  
+            <div className="mb-3">
+              <label className="form-label">Requested Loan Amount</label>
+              <input
+                type="number"
+                name="requestedAmount"
+                value={producerInfo.requestedAmount}
+                onChange={handleChange}
+                className="form-control"
+                required
+              />
+            </div>
+  
+            <div className="mb-3">
+              <label className="form-label">Reason for Loan</label>
+              <textarea
+                name="reasonForLoan"
+                value={producerInfo.reasonForLoan}
+                onChange={handleChange}
+                className="form-control"
+                rows="4"
+                required
+              />
+            </div>
+  
+            <button type="submit" className="btn btn-primary w-100">
+              Submit Loan Request
+            </button>
+          </form>
+        </div>
       </div>
     </div>
+    <Footer/>
+  </div>
+  
   );
 };
 

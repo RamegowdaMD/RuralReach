@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../css/LoanLandingPage.css';
 import NavForAll from '../components/NavForAll';
 import  Carousels from '../components/Carousel';
-import Footer from '../components/Footer';
+import Footer from '../components/footer';
 
 const LoanLandingPage = () => {
     const navigate = useNavigate(); 
