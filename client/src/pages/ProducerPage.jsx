@@ -27,14 +27,16 @@ const ProducerPage = () => {
         },
         body: JSON.stringify(producerInfo),
       });
-  
       const data = await response.json();
       if (response.ok) {
+        alert('Loan request submitted successfully!');
         console.log('Loan request submitted successfully:', data);
       } else {
+        alert(`Error: ${data.error || 'Something went wrong!'}`);
         console.error('Error:', data);
       }
     } catch (error) {
+      alert('Error submitting loan request. Please try again.');
       console.error('Error submitting loan request:', error);
     }
   };

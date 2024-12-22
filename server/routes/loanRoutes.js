@@ -29,5 +29,14 @@ router.post('/submit', async (req, res) => {
   }
 });
 
+router.get('/loan-requests', async (req, res) => {
+  try {
+    const loanRequests = await LoanRequest.find(); // Fetch all loan requests from MongoDB
+    res.status(200).json(loanRequests);
+  } catch (error) {
+    console.error('Error fetching loan requests:', error);
+    res.status(500).json({ error: 'Error fetching loan requests' });
+  }
+});
 
 module.exports = router;
