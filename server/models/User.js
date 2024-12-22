@@ -8,6 +8,10 @@ const UserSchema = new mongoose.Schema(
         image: String,
         Role: String,
         Member_Since: String,
+        products: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Product', 
+          }],
     }
 )
 const UserModel = mongoose.model("Users",UserSchema)
