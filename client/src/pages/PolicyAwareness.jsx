@@ -46,7 +46,7 @@ const PolicyAwareness = () => {
     <NavForAll/>
     <div className="container my-5">
       {/* Horizontal Scrolling Text */}
-      <div className="bg-primary text-white py-2 mb-4">
+      <div className="bg-primary text-white py-2 mb-4" style={{ marginTop: '20px', width: '100%', padding: '0' }}>
         <marquee>
           {policies.map((policy, index) => (
             <span key={index} className="mx-3">
