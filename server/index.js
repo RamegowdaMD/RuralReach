@@ -10,7 +10,7 @@ const productRoutes = require('./routes/products');
 
 const app = express()
 app.use(cors({
-  origin: 'http://localhost:5174', // Frontend origin
+  origin: 'http://localhost:5173', 
 }));
 app.use(bodyParser.json());
 dotenv.config();
